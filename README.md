@@ -1,1 +1,1 @@
-# Hyperland ./dot files 
+# Hyperland .config files 

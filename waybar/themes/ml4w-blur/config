@@ -52,8 +52,10 @@
         "pulseaudio",
         "bluetooth",
         "battery", 
-        "group/hardware",
         "custom/cliphist",
+	"backlight",
+	"keyboard-state",
+        //"group/hardware",
         "network",
         "custom/exit",
         "clock"

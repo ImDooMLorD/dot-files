@@ -158,7 +158,6 @@ window#waybar.empty #window {
 #custom-chatgpt, 
 #custom-calculator, 
 #custom-windowsvm, 
-#custom-cliphist, 
 #custom-wallpaper,
 #custom-settings,  
 #custom-wallpaperwlr, 
@@ -169,6 +168,7 @@ window#waybar.empty #window {
     opacity: 0.8;
     color: @iconcolor;
 }
+
 
 #custom-wallpaper, #custom-keybindings {
     margin-right:23px;
@@ -271,6 +271,7 @@ window#waybar.empty #window {
     margin: 6px 15px 6px 0px;
     border:3px solid @bordercolor;   
 }
+
 #custom-cliphist,#backlight {
     background-color: @backgroundlight;
     color: @textcolor2;
@@ -278,8 +279,8 @@ window#waybar.empty #window {
     padding: 1px 10px 0px 10px;
     margin: 6px 15px 6px 0px;
     font-size:16px;
-    color:@iconcolor;
     opacity:0.8;}
+
 /* -----------------------------------------------------
  * Pulseaudio
  * ----------------------------------------------------- */

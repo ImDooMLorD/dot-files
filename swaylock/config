@@ -8,6 +8,9 @@
 # by Stephan Raabe (2023) 
 # ----------------------------------------------------- 
 
+
+
+
 ignore-empty-password
 font="Fira Sans Semibold"
 
@@ -21,12 +24,6 @@ datestr=%a, %e of %B
 # Add an image as a background 
 # In my setup the current wallpaper (requires wallpaper scripts in /scripts)
 image=~/.cache/current_wallpaper.jpg
-
-# Inhibit idle if a window is in fullscreen
-for_window [shell=".*"] inhibit_idle fullscreen
-
-# Prevent Brave from inhibiting shortcuts
-for_window [app_id="^brave-.*-.*$"] shortcuts_inhibitor disabled
 
 # Fade in time
 fade-in=0

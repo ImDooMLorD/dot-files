@@ -15,20 +15,26 @@ clock
 timestr=%R
 datestr=%a, %e of %B
 
-# Add current screenshot as wallpaper
+# Add current screenshot das wallpaper
 # screenshots
 
 # Add an image as a background 
 # In my setup the current wallpaper (requires wallpaper scripts in /scripts)
 image=~/.cache/current_wallpaper.jpg
 
+# Inhibit idle if a window is in fullscreen
+for_window [shell=".*"] inhibit_idle fullscreen
+
+# Prevent Brave from inhibiting shortcuts
+for_window [app_id="^brave-.*-.*$"] shortcuts_inhibitor disabled
+
 # Fade in time
-fade-in=1
+fade-in=0
 
 # Effect for background
 effect-blur=20x6
 # effect-greyscale
-effect-pixelate=5
+effect-pixelate=15
 
 # Show/Hide indicator circle
 indicator
@@ -75,4 +81,3 @@ caps-lock-key-hl-color=ffffffFF
 caps-lock-bs-hl-color=ffffffFF
 disable-caps-lock-text
 text-caps-lock-color=ffffff
-#

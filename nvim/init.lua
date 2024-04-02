@@ -1,3 +1,8 @@
+-- My custom remaps
+vim.api.nvim_set_keymap('i', 'kj', '<Esc>', { noremap = true })
+vim.api.nvim_set_keymap('', ';', ':', { noremap = true })
+
+
 --[[
 
 =====================================================================
@@ -229,7 +234,7 @@ require('lazy').setup({
   --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
   --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
 }, {})
 
 -- [[ Setting options ]]
@@ -240,7 +245,8 @@ require('lazy').setup({
 vim.o.hlsearch = false
 
 -- Make line numbers default
-vim.wo.number = true
+vim.wo.number = true 
+vim.wo.relativenumber = true
 
 -- Enable mouse mode
 vim.o.mouse = 'a'

@@ -20,8 +20,8 @@
 			"active": "",
 			"default": ""
         },
-        "persistent_workspaces": {
-             "*": 5
+        "persistent-workspaces": {
+            "*": 5
         }       
     },
 
@@ -56,6 +56,18 @@
         "separate-outputs": true
     },
 
+    // ML4W Welcome App
+    "custom/ml4w-welcome": {
+        "on-click": "~/dotfiles/apps/ML4W_Welcome-x86_64.AppImage",
+        "format": " ",
+        "tooltip": false
+    },
+
+    // Empty
+    "custom/empty": {
+        "format": ""
+    },
+
     // Youtube Subscriber Count
     "custom/youtube": {
         "format": " {}",
@@ -82,7 +94,8 @@
         "return-type": "json",       
         "exec": "~/dotfiles/scripts/updates.sh",
         "restart-interval": 60,
-        "on-click": "alacritty -e ~/dotfiles/scripts/installupdates.sh",
+        "on-click": "alacritty --class dotfiles-floating -e ~/dotfiles/scripts/installupdates.sh",
+        "on-click-right": "~/dotfiles/.settings/software.sh",
         "tooltip": false
     },
     
@@ -104,7 +117,7 @@
     // Settings
     "custom/settings": {
         "format": "",
-        "on-click": "alacritty --class dotfiles-floating -e ~/dotfiles/hypr/settings/settings.sh",
+        "on-click": "~/dotfiles/apps/ML4W_Dotfiles_Settings-x86_64.AppImage",
         "tooltip": false
     },
 
@@ -117,8 +130,8 @@
 
     // Filemanager Launcher
     "custom/filemanager": {
-        "format": "",
-        "on-click": "thunar",
+        "format": "",
+        "on-click": "~/dotfiles/.settings/filemanager.sh",
         "tooltip": false
     },
 
@@ -138,15 +151,27 @@
 
     // Browser Launcher
     "custom/browser": {
-        "format": "",
-        "on-click": "brave",
+        "format": "",
+        "on-click": "~/dotfiles/.settings/browser.sh",
         "tooltip": false
     },    
 
     // ChatGPT Launcher
     "custom/chatgpt": {
-        "format": "",
+        "format": " ",
         "on-click": "chromium --app=https://chat.openai.com",
+        "tooltip": false
+    },
+    // Gemini Launcher
+    "custom/gemini": {
+        "format": " ",
+        "on-click": "chromium --app=https://gemini.google.com/app",
+        "tooltip": false
+    },    
+    // Copilot Launcher
+    "custom/copilot": {
+        "format": " ",
+        "on-click": "chromium --app=https://copilot.microsoft.com",
         "tooltip": false
     },
 
@@ -166,12 +191,22 @@
 
     // Rofi Application Launcher
     "custom/appmenu": {
+        // START APPS LABEL
         "format": "Apps",
-        "on-click": "rofi -show drun -replace",
+        // END APPS LABEL
+        "on-click": "sleep 0.2;rofi -show drun -replace",
         "on-click-right": "~/dotfiles/hypr/scripts/keybindings.sh",
         "tooltip": false
     },
-    
+
+    // Rofi Application Launcher
+    "custom/appmenuicon": {
+        "format": "",
+        "on-click": "rofi -show drun -replace",
+        "on-click-right": "~/dotfiles/hypr/scripts/keybindings.sh",
+        "tooltip": false
+    },    
+
     // Power Menu
     "custom/exit": {
         "format": "",
@@ -183,7 +218,7 @@
     "keyboard-state": {
         "numlock": true,
         "capslock": true,
-        "format": "{name} {icon} ",
+        "format": "{name} {icon}",
         "format-icons": {
             "locked": "",
             "unlocked": ""
@@ -192,16 +227,24 @@
 
     // System tray
     "tray": {
-        // "icon-size": 21,
+        "icon-size": 21,
         "spacing": 10
     },
 
     // Clock
     "clock": {
+        "format": "{:%I:%M %p - %a}",
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}",
-        "format": "{:%OI:%OM %p}"
+        // START CLOCK FORMAT
+        "format-alt": "{:%Y-%m-%d}"
+        // END CLOCK FORMAT
+    },
+
+    // System
+    "custom/system": {
+        "format": "",
+        "tooltip": false
     },
 
     // CPU
@@ -219,25 +262,66 @@
     // Harddisc space used
     "disk": {
         "interval": 30,
-        "format": "   {percentage_used}% ",
+        "format": "D {percentage_used}% ",
         "path": "/",
         "on-click": "alacritty -e htop"
     }, 
+
+    "hyprland/language": {
+        "format": "/ K {short}"
+    },
+
+    // Group Hardware
+    "group/hardware": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 300,
+            "children-class": "not-memory",
+            "transition-left-to-right": false
+        },        
+        "modules": [
+            "custom/system",
+            "disk",
+            "cpu",
+            "memory",
+            "hyprland/language"
+        ]
+    },
     
+    // Group Settings
+    "group/settings": {
+        "orientation": "horizontal",
+        "modules": [
+            // START CHATGPT TOOGLE
+            "custom/chatgpt",
+            // END CHATGPT TOOGLE
+            "custom/settings",
+            "custom/waybarthemes",
+            "custom/wallpaper"
+        ]
+    },
+
+    // Group Quicklinks
+    "group/quicklinks": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/browser",
+            "custom/filemanager",
+         ]
+    },
+
     // Network
     "network": {
         "format": "{ifname}",
         "format-wifi": "   {signalStrength}%",
-        "format-ethernet": "  {ipaddr}",
-        "format-disconnected": "Not connected",
-
-    //An empty format will hide the module.
+        "format-ethernet": "  {ifname}",
+        "format-disconnected": "Disconnected",
         "tooltip-format": " {ifname} via {gwaddri}",
-        "tooltip-format-wifi": "   {essid} ({signalStrength}%)",
-        "tooltip-format-ethernet": "  {ifname} ({ipaddr}/{cidr})",
+        "tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
+        "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
         "tooltip-format-disconnected": "Disconnected",
         "max-length": 50,
-        "on-click": "alacritty -e nmtui"
+        "on-click": "~/dotfiles/.settings/networkmanager.sh"
     },
 
     // Battery
@@ -256,13 +340,6 @@
         "format-icons": [" ", " ", " ", " ", " "]
     },
 
-    // Backlight
-    "backlight": {
-        "device": "acpi_video1",
-        "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
-    },
-
     // Pulseaudio
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
@@ -274,22 +351,24 @@
         "format-source-muted": "",
         "format-icons": {
             "headphone": " ",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", " ", " "]
+            "hands-free": " ",
+            "headset": " ",
+            "phone": " ",
+            "portable": " ",
+            "car": " ",
+            "default": [" ", " ", " "]
         },
         "on-click": "pavucontrol"
     },
 
     // Bluetooth
     "bluetooth": {
+        "format": " {status}",
         "format-disabled": "",
         "format-off": "",
         "interval": 30,
-        "on-click": "blueman-manager"
+        "on-click": "blueman-manager",
+        "format-no-controller": ""
     },
 
     // Other
@@ -297,5 +376,32 @@
         "format": "{user}",
         "interval": 60,
         "icon": false,
+    },
+
+    // Idle Inhibator
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "tooltip": true,
+        "format-icons":{
+            "activated": "",
+            "deactivated": ""
+        },
+        "on-click-right": "hyprlock"        
+    },
+    // Backlight
+    "backlight": {
+        "device": "acpi_video1",
+        "format": "{percent}% {icon}",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
     }
 }

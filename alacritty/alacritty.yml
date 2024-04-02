@@ -77,7 +77,7 @@ window:
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 0.65
+  opacity: 0.7
 
   # Startup Mode (changes require restart)
   #
@@ -194,12 +194,12 @@ font:
 #draw_bold_text_with_bright_colors: false
 
 # Colors (Tomorrow Night)
-colors:
-  #Default colors
-   primary:
-    #background: '#1d1f21'
-    background: '#000000'
-    foreground: '#c5c8c6'
+# colors:
+  # Default colors
+  # primary:
+  #  background: '#1d1f21'
+  #  background: '#000000'
+  #  foreground: '#c5c8c6'
 
     # Bright and dim foreground colors
     #
@@ -448,8 +448,8 @@ colors:
 # Default:
 #   - (Linux/BSD/macOS) `$SHELL` or the user's login shell, if `$SHELL` is unset
 #   - (Windows) powershell
-shell:
-  program: /bin/fish
+#shell:
+#  program: /bin/bash
 #  args:
 #    - --login
 
@@ -475,7 +475,7 @@ shell:
   #triple_click: { threshold: 300 }
 
   # If this is `true`, the cursor is temporarily hidden when typing.
-  #hide_when_typing: false
+  : false
 
 # Hints
 #

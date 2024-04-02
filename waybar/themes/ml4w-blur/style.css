@@ -158,20 +158,65 @@ window#waybar.empty #window {
 #custom-chatgpt, 
 #custom-calculator, 
 #custom-windowsvm, 
-#custom-wallpaper,
-#custom-settings,  
-#custom-wallpaperwlr, 
+#custom-cliphist, 
+#custom-wallpaper, 
+#custom-settings, 
+#custom-wallpaper, 
+#custom-system,
 #custom-waybarthemes {
-    margin-right: 15px;
+    margin-right: 23px;
     font-size: 20px;
     font-weight: bold;
     opacity: 0.8;
     color: @iconcolor;
 }
+ 
+#custom-system {
+    margin-right:15px;
+}
 
+#custom-wallpaper {
+    margin-right:25px;
+}
 
-#custom-wallpaper, #custom-keybindings {
-    margin-right:23px;
+#custom-waybarthemes, #custom-settings {
+    margin-right:20px;
+}
+
+#custom-ml4w-welcome {
+    margin-right: 15px;
+    background-image: url("../assets/ml4w-icon.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-right: 24px;
+}
+
+#custom-chatgpt {
+    margin-right: 15px;
+    background-image: url("../assets/ai-icon-20.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-right: 24px;
+}
+
+/* -----------------------------------------------------
+ * Idle Inhibator
+ * ----------------------------------------------------- */
+
+#idle_inhibitor {
+    margin-right: 15px;
+    font-size: 22px;
+    font-weight: bold;
+    opacity: 0.8;
+    color: @iconcolor;
+}
+
+#idle_inhibitor.activated {
+    margin-right: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    opacity: 0.8;
+    color: #dc2f2f;
 }
 
 /* -----------------------------------------------------
@@ -246,15 +291,14 @@ window#waybar.empty #window {
  * Hardware Group
  * ----------------------------------------------------- */
 
-#disk,#memory,#cpu,#keyboard-state{
-    margin:2px;
+ #disk,#memory,#cpu,#language {
+    margin:0px;
     padding:0px;
     font-size:16px;
     color:@iconcolor;
 }
 
-
-#memory {
+#language {
     margin-right:10px;
 }
 
@@ -269,17 +313,9 @@ window#waybar.empty #window {
     border-radius: 15px;
     padding: 1px 10px 0px 10px;
     margin: 6px 15px 6px 0px;
+    opacity:0.8;
     border:3px solid @bordercolor;   
 }
-
-#custom-cliphist,#backlight {
-    background-color: @backgroundlight;
-    color: @textcolor2;
-    border-radius: 15px;
-    padding: 1px 10px 0px 10px;
-    margin: 6px 15px 6px 0px;
-    font-size:16px;
-    opacity:0.8;}
 
 /* -----------------------------------------------------
  * Pulseaudio
@@ -385,7 +421,8 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #tray {
-    background-color: #2980b9;
+    padding: 0px 15px 0px 0px;
+    color: @textcolor3;
 }
 
 #tray > .passive {
@@ -394,23 +431,4 @@ window#waybar.empty #window {
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
 }
-
-/* -----------------------------------------------------
- * Other
- * ----------------------------------------------------- */
-
-label:focus {
-    background-color: #000000;
-}
-
-
-#network {
-    background-color: #2980b9;
-}
-
-#network.disconnected {
-    background-color: #f53c3c;
-}
-

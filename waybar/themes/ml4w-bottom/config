@@ -10,19 +10,10 @@
 //
 {
     // General Settings
-
-    // Position TOP
-    // "layer": "top",
-    // "margin-top": 14,
-    // "margin-bottom": 0,
-
-    // Position BOTTOM
     "position": "bottom",
     "margin-top": 0,
     "margin-bottom": 14,
-    
     "layer": "top",
-    "height": 16,
     "margin-left": 0,
     "margin-right": 0,    
     "spacing": 0,
@@ -33,9 +24,7 @@
     // Modules Left
     "modules-left": [
         "custom/appmenu",
-        "custom/wallpaper",
-        "custom/waybarthemes",          
-        "custom/settings",          
+        "group/settings",
         "wlr/taskbar",
         "group/quicklinks",
         "hyprland/window"
@@ -43,7 +32,8 @@
 
     // Modules Center
     "modules-center": [
-        "hyprland/workspaces"
+        "hyprland/workspaces",
+        "custom/empty"
     ],
 
     // Modules Right    
@@ -52,29 +42,13 @@
         "pulseaudio",
         "bluetooth",
         "battery", 
+        "network",
         "group/hardware",
         "custom/cliphist",
-        "network",
+        "idle_inhibitor",
+        "tray",
         "custom/exit",
+        "custom/ml4w-welcome",
         "clock"
-    ],
-
-    // Group Quicklinks
-    "group/quicklinks": {
-        "orientation": "horizontal",
-        "modules": [
-            "custom/filemanager",
-            "custom/browser"
-         ]
-    },
-
-    // Group Hardware
-    "group/hardware": {
-        "orientation": "horizontal",
-        "modules": [
-            "disk",
-            "cpu",
-            "memory"
-        ]
-    }
+    ]
 }

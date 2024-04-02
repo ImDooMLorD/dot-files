@@ -5,11 +5,6 @@ set VIRTUAL_ENV_DISABLE_PROMPT "1"
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 set -x SHELL /usr/bin/fish
 
-## Export variable need for qt-theme
-if type "qtile" >> /dev/null 2>&1
-   set -x QT_QPA_PLATFORMTHEME "qt5ct"
-end
-
 # Set settings for https://github.com/franciscolourenco/done
 set -U __done_min_cmd_duration 10000
 set -U __done_notification_urgency_level low
@@ -43,7 +38,7 @@ end
 
 
 ## Advanced command-not-found hook
-source /usr/share/doc/find-the-command/ftc.fish
+# source /usr/share/doc/find-the-command/ftc.fish
 
 
 ## Functions
@@ -106,17 +101,17 @@ end
 ## Useful aliases
 
 # Replace ls with eza
-alias ls 'eza -al --color=always --group-directories-first --icons' # preferred listing
-alias la 'eza -a --color=always --group-directories-first --icons'  # all files and dirs
-alias ll 'eza -l --color=always --group-directories-first --icons'  # long format
-alias lt 'eza -aT --color=always --group-directories-first --icons' # tree listing
-alias l. 'eza -ald --color=always --group-directories-first --icons .*' # show only dotfiles
+# alias ls 'eza -al --color=always --group-directories-first --icons' # preferred listing
+# alias la 'eza -a --color=always --group-directories-first --icons'  # all files and dirs
+# alias ll 'eza -l --color=always --group-directories-first --icons'  # long format
+# alias lt 'eza -aT --color=always --group-directories-first --icons' # tree listing
+# alias l. 'eza -ald --color=always --group-directories-first --icons .*' # show only dotfiles
 
 # Replace some more things with better alternatives
-alias cat 'bat --style header --style snip --style changes --style header'
-if not test -x /usr/bin/yay; and test -x /usr/bin/paru
-    alias yay 'paru'
-end
+# alias cat 'bat --style header --style snip --style changes --style header'
+#if not test -x /usr/bin/yay; and test -x /usr/bin/paru
+ #   alias yay 'paru'
+#end
 
 
 # Common use
@@ -165,9 +160,9 @@ alias jctl 'journalctl -p 3 -xb'
 alias rip 'expac --timefmt="%Y-%m-%d %T" "%l\t%n %v" | sort | tail -200 | nl'
 
 ## Run fastfetch if session is interactive
-##if status --is-interactive && type -q fastfetch
-##   fastfetch --load-config dr460nized
-##end
+if status --is-interactive 
+  pfetch
+end
 
 
 # -----------------------------------------------------
@@ -177,26 +172,32 @@ alias rip 'expac --timefmt="%Y-%m-%d %T" "%l\t%n %v" | sort | tail -200 | nl'
 alias c='clear'
 alias nf='neofetch'
 alias pf='pfetch'
-alias ls='eza -al'
+alias ls='eza -a --icons'
+alias ll='eza -al --icons'
+alias lt='eza -a --tree --level=1 --icons'
 alias shutdown='systemctl poweroff'
 alias v='nvim'
 alias ts='~/dotfiles/scripts/snapshot.sh'
 alias matrix='cmatrix'
 alias wifi='nmtui'
-alias od='~/private/onedrive.sh'
 alias rw='~/dotfiles/waybar/reload.sh'
 alias winclass="xprop | grep 'CLASS'"
-alias dot="cd ~/dotfiles"
+alias dot='cd ~/dotfiles'
 
 # -----------------------------------------------------
 # GIT
 # -----------------------------------------------------
 
-alias gs="git status"
-alias ga="git add"
-alias gc="git commit -m"
-alias gp="git push"
-alias gpl="git pull"
-alias gst="git stash"
-alias gsp="git stash; git pull"
-alias gcheck="git checkout"
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit -m'
+alias gp='git push'
+alias gpl='git pull'
+alias gst='git stash'
+alias gsp='git stash; git pull'
+alias gcheck='git checkout'
+alias gcredential="git config credential.helper store"
+# -----------------------------------------------------
+# PYWAL
+# -----------------------------------------------------
+cat ~/.cache/wal/sequences

@@ -162,17 +162,62 @@ window#waybar.empty #window {
 #custom-cliphist, 
 #custom-wallpaper, 
 #custom-settings, 
-#custom-wallpaperwlr, 
+#custom-wallpaper, 
+#custom-system,
 #custom-waybarthemes {
-    margin-right: 15px;
+    margin-right: 23px;
     font-size: 20px;
     font-weight: bold;
     opacity: 0.8;
     color: @iconcolor;
 }
 
-#custom-wallpaper, #custom-keybindings {
-    margin-right:23px;
+#custom-system {
+    margin-right:15px;
+}
+
+#custom-wallpaper {
+    margin-right:25px;
+}
+
+#custom-waybarthemes, #custom-settings {
+    margin-right:20px;
+}
+
+#custom-chatgpt {
+    margin-right: 15px;
+    background-image: url("../assets/ai-icon.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-right: 24px;
+}
+
+#custom-ml4w-welcome {
+    margin-right: 15px;
+    background-image: url("../assets/ml4w-icon.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-right: 24px;
+}
+
+/* -----------------------------------------------------
+ * Idle Inhibator
+ * ----------------------------------------------------- */
+
+#idle_inhibitor {
+    margin-right: 15px;
+    font-size: 22px;
+    font-weight: bold;
+    opacity: 0.8;
+    color: @iconcolor;
+}
+
+#idle_inhibitor.activated {
+    margin-right: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    opacity: 0.8;
+    color: #dc2f2f;
 }
 
 /* -----------------------------------------------------
@@ -194,7 +239,7 @@ window#waybar.empty #window {
  * Custom Exit
  * ----------------------------------------------------- */
 
-#custom-exit, #custom-exitwlr {
+#custom-exit {
     margin: 0px 20px 0px 0px;
     padding:0px;
     font-size:20px;
@@ -247,14 +292,14 @@ window#waybar.empty #window {
  * Hardware Group
  * ----------------------------------------------------- */
 
-#disk,#memory,#cpu {
+#disk,#memory,#cpu,#language {
     margin:0px;
     padding:0px;
     font-size:16px;
     color:@iconcolor;
 }
 
-#memory {
+#language {
     margin-right:10px;
 }
 
@@ -377,7 +422,7 @@ window#waybar.empty #window {
  * ----------------------------------------------------- */
 
 #tray {
-    background-color: #2980b9;
+    padding: 0px 15px 0px 0px;
 }
 
 #tray > .passive {
@@ -386,26 +431,6 @@ window#waybar.empty #window {
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
 }
 
-/* -----------------------------------------------------
- * Other
- * ----------------------------------------------------- */
-
-label:focus {
-    background-color: #000000;
-}
-
-#backlight {
-    background-color: #90b1b1;
-}
-
-#network {
-    background-color: #2980b9;
-}
-
-#network.disconnected {
-    background-color: #f53c3c;
-}
 
